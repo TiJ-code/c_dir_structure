@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra $(shell xml2-config --cflags)
-LDFLAGS =  $(shell xml2-config --libs)
+CFLAGS = -Wall -Wextra $(shell pkg-config --cflags libxml-2.0)
+LDFLAGS =  $(shell pkg-config --libs libxml-2.0)
 
 .PHONY: all
 
