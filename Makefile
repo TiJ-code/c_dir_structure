@@ -9,6 +9,11 @@ all: build
 build: structure.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
+static: structure.c
+	$(CC) $(CFLAGS) -o build-static $^ \
+		$(shell pkg-config --cflags --static libxml-2.0) \
+		$(shell pkg-config --libs --static libxml-2.0) \
+
 clean:
-	rm -f build
+	rm -f build build-static
 
