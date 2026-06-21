@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+  <dirs name="!ROOT/!MODULES">
+    <dir name="0_scripts"/>
+    <dir name="1_notes"/>
+    <dir name="2_exercises"/>
+  </dirs>
+</template>
