@@ -1,0 +1,45 @@
+name: Release
+on:
+  push:
+    tags:
+      - "releases/v*.*.*"
+
+permissions:
+  contents: write
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y build-essential libxml2-dev pkg-config
+
+      - name: Build
+        run: make
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#releases/}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Rename binary
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          mv build "structure-$VERSION"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Structure ${{ steps.version.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          files: structure*
+          generate_release_notes: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
