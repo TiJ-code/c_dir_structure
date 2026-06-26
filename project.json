@@ -1,0 +1,16 @@
+{
+  "langrev": "1",
+  "warnings": true,
+  "dependency-search-paths": [],
+  "targets": {
+    "build": {
+      "type": "executable",
+      "sources": [
+        "src"
+      ],
+      "linked-libraries": [
+        "xml2"
+      ]
+    }
+  }
+}

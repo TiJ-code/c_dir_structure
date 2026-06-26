@@ -1,6 +1,6 @@
-# C DIR STRUCTURE
+# C3 DIR STRUCTURE
 
-A very simple c program, that can create parameterized directory structures.
+A very simple c3 program, that can create parameterized directory structures.
 
 ## Example
 
@@ -39,4 +39,4 @@ This could result in...
 ```
 
 > [!NOTE]
-> I am not a professional C developer, just trying to develop small simple tools with this language to get a better feel for the language, experiment a litte and get jobs done
+> I am not a professional C or C3 developer, just trying to develop small simple tools with this language to get a better feel for the language, experiment a litte and get jobs done
